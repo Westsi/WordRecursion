@@ -33,8 +33,14 @@ def recurse(word, level):
                         words.append(w)
                         recurse(w, level+1)
     except KeyError as e:
-        print(f"ERROR: {e}")
-        print(f"BROKEN WORD: {word}")
+        try:
+            print(f"ERROR: {e}")
+            print(f"BROKEN WORD: {word}")
+        except:
+            pass
+    except KeyboardInterrupt:
+        writefile(oword)
+        exit()
     except:
         pass
 
